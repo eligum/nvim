@@ -9,13 +9,13 @@ local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 -- Requires git to be available on the system
 if fn.empty(fn.glob(install_path)) > 0 then
     PACKER_BOOTSTRAP = fn.system({
-        "git", 
-        "clone", 
-        "https://github.com/wbthomason/packer.nvim", 
-        install_path
+        "git",
+        "clone",
+        "https://github.com/wbthomason/packer.nvim",
+        install_path,
     })
     print "Installing Packer.nvim..."
-	execute 'packadd packer.nvim'
+    execute 'packadd packer.nvim'
 end
 
 -- Autocommand to reload neovim whenever this file is saved
@@ -31,6 +31,15 @@ local ok, packer = pcall(require, "packer")
 if not ok then
     return
 end
+--
+-- Have packer use a popup window
+packer.init({
+    display = {
+        open_fn = function()
+            return require("packer.util").float({ border = "rounded" })
+        end,
+    },
+})
 
 -- Install your plugins here
 return packer.startup(function(use)
@@ -52,6 +61,7 @@ return packer.startup(function(use)
     use { "hrsh7th/cmp-cmdline" }    -- Cmdline completions
     use { "saadparwaiz1/cmp_luasnip" }
     use { "hrsh7th/cmp-nvim-lsp" }
+    use { "hrsh7th/cmp-nvim-lua" }
 
     -- LSP
     use { "neovim/nvim-lspconfig" }  -- Core LSP support from neovim
@@ -61,25 +71,12 @@ return packer.startup(function(use)
     use { "L3MON4D3/LuaSnip" }       -- Snippet engine
     use { "rafamadriz/friendly-snippets" } -- A bunch of useful snippets
 
-    -- A collection of common configurations for Neovim's built-in language server client
-	--use { 'neovim/nvim-lspconfig',
-	--      config = [[ require('plugins/lspconfig') ]] }
+    -- Fuzzy-finder
+    use { "nvim-telescope/telescope.nvim" }
 
-	--use { 'williamboman/nvim-lsp-installer',
-	--	config = [[ require('plugins/lsp_installer_nvim') ]] }
-
-    ---- vscode-like pictograms for neovim lsp completion items Topics
-	--use { 'onsails/lspkind-nvim',
-	--	  config = [[ require('plugins/lspkind') ]] }
-
-    ---- Utility functions for getting diagnostic status and progress messages from LSP servers, for use in Neovim statusline
-	--use { 'nvim-lua/lsp-status.nvim',
-	--	  config = [[ require('plugins/lspstatus') ]] }
-
-    --end, config = {
-    --    -- Move to lua dir so impatient.nvim can cache it
-    --    compile_path = vim.fn.stdpath('config') .. '/plugin/packer_compiled.lua'
-    --}
+    -- TreeNvim
+    use { "kyazdani42/nvim-tree.lua" }
+    use { "kyazdani42/nvim-web-devicons" } -- Optional, for file icons
 
     -- Automatically set up your config after fresh start
     -- Put this after all your plugins
