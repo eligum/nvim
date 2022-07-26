@@ -14,6 +14,7 @@ set.cursorline = true           -- highlight current line
 set.conceallevel = 0            -- so that `` is visible in markdown files
 set.encoding = "utf-8"          -- encoding displayed
 set.fileencoding = "utf-8"      -- encoding written to a file
+set.filetype = "on"             -- detect file type
 set.hlsearch = true             -- highlight matches when searching
 set.ignorecase = true           -- ignore case in search patterns
 set.mouse = 'a'                 -- mouse support for all modes

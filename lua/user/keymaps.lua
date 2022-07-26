@@ -40,6 +40,14 @@ keymap('n', "<C-Right>", ":vertical resize +2<CR>", opts)
 
 keymap('n', "<Leader>w",  "<C-w>",  opts)
 
+-- Quick editing of neovim config files
+keymap('n', "<Leader>sv", ":luafile $MYVIMRC<CR>", opts)
+keymap('n', "<Leader>ei", ":e $MYVIMRC<CR>", opts)
+keymap('n', "<Leader>ek", ":e ~/.config/nvim/lua/user/keymaps.lua<CR>", opts)
+keymap('n', "<Leader>es", ":e ~/.config/nvim/lua/user/settings.lua<CR>", opts)
+keymap('n', "<Leader>ep", ":e ~/.config/nvim/lua/user/plugins.lua<CR>", opts)
+keymap('n', "<Leader>et", ":e ~/.config/nvim/lua/user/colorscheme.lua<CR>", opts)
+
 -- Navigate buffers
 keymap('n', "<Leader>bn", ":bnext<CR>",     opts)
 keymap('n', "<Leader>bp", ":bprevious<CR>", opts)

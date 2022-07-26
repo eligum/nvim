@@ -1,4 +1,4 @@
-local colorscheme = "monokaipro"
+local colorscheme = "gruvbox"
 
 -- Monokaipro settings
 --vim.g.monokaipro_filter = "machine"
@@ -21,7 +21,7 @@ if colorscheme == "gruvbox" then
         invert_tabline = false,
         invert_intend_guides = false,
         inverse = true,    -- invert background for search, diffs, statuslines and errors
-        contrast = "hard", -- can be "hard", "soft" or empty string
+        contrast = "soft", -- can be "hard", "soft" or empty string
         overrides = {},
     })
 end
