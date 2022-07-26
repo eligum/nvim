@@ -1,4 +1,4 @@
-local colorscheme = "darkplus"
+local colorscheme = "monokaipro"
 
 -- Monokaipro settings
 --vim.g.monokaipro_filter = "machine"

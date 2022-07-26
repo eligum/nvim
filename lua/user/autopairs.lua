@@ -13,7 +13,7 @@ npairs.setup {
     },
     disable_filetype = { "TelescopePrompt", "spectre_panel" },
     fast_wrap = {
-        map = "<M-e>",
+        map = "<M-w>",
         chars = { "{", "[", "(", '"', "'" },
         pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], "%s+", ""),
         offset = 0, -- Offset from pattern match
@@ -31,3 +31,4 @@ if not cmp_status_ok then
     return
 end
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done { map_char = { tex = "" } })
+

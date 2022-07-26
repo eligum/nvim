@@ -50,6 +50,8 @@ return packer.startup(function(use)
     use { "nvim-lua/plenary.nvim" }  -- Useful lua functions used by lots of plugins
     use { "nvim-treesitter/nvim-treesitter" } --, run = ":TSUpdate" }
     use { "windwp/nvim-autopairs" }  -- Autopairs, integrates with cmp and tree
+    use { "numToStr/Comment.nvim" }
+    use { "JoosepAlviste/nvim-ts-context-commentstring" }
     use { "kyazdani42/nvim-tree.lua" }
     use { "kyazdani42/nvim-web-devicons" } -- Optional, for file icons
 
