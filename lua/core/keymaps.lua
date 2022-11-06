@@ -7,7 +7,7 @@ local function keymap(mode, lhs, rhs)
     if opts then
         options = vim.tbl_extend("force", options)
     end
-    vim.api.nvim_set.keymap(mode, lhs, rhs, options)
+    vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Set SPACE as leader key
@@ -30,7 +30,7 @@ vim.g.maplocalleader = ' '
 keymap('n', "<S-s>", ":%s//g<Left><Left>", { silent = false })
 
 -- Exit vim, 'x' save and quit, 'q' quit without saving
-keymap('n', "<Leader>x",  ":x<CR>")
+keymap('n', "<Leader>x",  ":xa<CR>")
 keymap('n', "<Leader>q",  ":qa!<CR>")
 
 -- Save current file
@@ -64,10 +64,10 @@ keymap('n', "<Leader>w",  "<C-w>")
 -- Quick editing of neovim config files
 keymap('n', "<Leader>sv", ":luafile $MYVIMRC<CR>")
 keymap('n', "<Leader>ei", ":e $MYVIMRC<CR>")
-keymap('n', "<Leader>ek", ":e ~/.config/nvim/lua/user/keymaps.lua<CR>")
-keymap('n', "<Leader>es", ":e ~/.config/nvim/lua/user/settings.lua<CR>")
-keymap('n', "<Leader>ep", ":e ~/.config/nvim/lua/user/plugins.lua<CR>")
-keymap('n', "<Leader>et", ":e ~/.config/nvim/lua/user/colorscheme.lua<CR>")
+keymap('n', "<Leader>ek", ":e ~/.config/nvim/lua/core/keymaps.lua<CR>")
+keymap('n', "<Leader>es", ":e ~/.config/nvim/lua/core/settings.lua<CR>")
+keymap('n', "<Leader>ep", ":e ~/.config/nvim/lua/core/plugins.lua<CR>")
+keymap('n', "<Leader>ec", ":e ~/.config/nvim/lua/core/colors.lua<CR>")
 
 -- Navigate buffers
 keymap('n', "<S-l>", ":bnext<CR>")
@@ -93,7 +93,7 @@ keymap('i', "<A-k>", "<ESC>V:move '<-2<CR>gv-gv<ESC>i")
 --------------------------------------------------------------------------------
 
 -- Toggle explorer
-keymap('n', "<C-e>",     ":NvimTreeToggle<CR>")
+keymap('n', "<Leader>E", ":NvimTreeToggle<CR>")
 keymap('n', "<Leader>0", ":NvimTreeFocus<CR>")
 
 -- Telescope key bindings

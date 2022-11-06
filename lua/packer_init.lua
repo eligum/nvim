@@ -66,6 +66,10 @@ return packer.startup(function(use)
     use { "ellisonleao/gruvbox.nvim" }
     use { "https://gitlab.com/__tpb/monokai-pro.nvim" }
 
+    use 'navarasu/onedark.nvim'
+    use 'tanvirtin/monokai.nvim'
+    use { 'rose-pine/neovim', as = 'rose-pine' }
+
     -- CMP plugins
     use { "hrsh7th/nvim-cmp" }       -- The completion plugin
     use { "hrsh7th/cmp-buffer" }     -- Buffer completions

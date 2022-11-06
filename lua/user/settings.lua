@@ -15,6 +15,7 @@ set.conceallevel = 0            -- so that `` is visible in markdown files
 set.encoding = "utf-8"          -- encoding displayed
 set.fileencoding = "utf-8"      -- encoding written to a file
 set.filetype = "on"             -- detect file type
+set.hidden = true               -- allow multiple buffers
 set.hlsearch = true             -- highlight matches when searching
 set.ignorecase = true           -- ignore case in search patterns
 set.mouse = 'a'                 -- mouse support for all modes
