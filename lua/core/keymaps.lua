@@ -66,7 +66,7 @@ keymap('n', "<Leader>sv", ":luafile $MYVIMRC<CR>")
 keymap('n', "<Leader>ei", ":e $MYVIMRC<CR>")
 keymap('n', "<Leader>ek", ":e ~/.config/nvim/lua/core/keymaps.lua<CR>")
 keymap('n', "<Leader>es", ":e ~/.config/nvim/lua/core/settings.lua<CR>")
-keymap('n', "<Leader>ep", ":e ~/.config/nvim/lua/core/plugins.lua<CR>")
+keymap('n', "<Leader>ep", ":e ~/.config/nvim/lua/packer_init.lua<CR>")
 keymap('n', "<Leader>ec", ":e ~/.config/nvim/lua/core/colors.lua<CR>")
 
 -- Navigate buffers
@@ -93,7 +93,7 @@ keymap('i', "<A-k>", "<ESC>V:move '<-2<CR>gv-gv<ESC>i")
 --------------------------------------------------------------------------------
 
 -- Toggle explorer
-keymap('n', "<Leader>E", ":NvimTreeToggle<CR>")
+keymap('n', "<A-e>",     ":NvimTreeToggle<CR>")
 keymap('n', "<Leader>0", ":NvimTreeFocus<CR>")
 
 -- Telescope key bindings
