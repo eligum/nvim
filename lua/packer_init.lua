@@ -33,8 +33,8 @@ vim.cmd [[
 ]]
 
 -- Use a protected call so we don't error out on first use
-local status_ok, packer = pcall(require, "packer")
-if not status_ok then
+local ok, packer = pcall(require, "packer")
+if not ok then
     return
 end
 
@@ -65,10 +65,6 @@ return packer.startup(function(use)
     use { "lunarvim/darkplus.nvim" } -- VSCode dark theme
     use { "ellisonleao/gruvbox.nvim" }
     use { "https://gitlab.com/__tpb/monokai-pro.nvim" }
-
-    use 'navarasu/onedark.nvim'
-    use 'tanvirtin/monokai.nvim'
-    use { 'rose-pine/neovim', as = 'rose-pine' }
 
     -- CMP plugins
     use { "hrsh7th/nvim-cmp" }       -- The completion plugin

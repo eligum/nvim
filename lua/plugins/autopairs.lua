@@ -1,6 +1,9 @@
--- Setup nvim-cmp.
-local status_ok, npairs = pcall(require, "nvim-autopairs")
-if not status_ok then
+--------------------------------------------------------------------------------
+-- url: https://github.com/windwp/nvim-autopairs
+--------------------------------------------------------------------------------
+
+local ok, npairs = pcall(require, "nvim-autopairs")
+if not ok then
     return
 end
 

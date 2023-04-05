@@ -1,27 +1,37 @@
+-------------------------------------------------------------------------------
+-- url: https://github.com/numToStr/Comment.nvim
+-------------------------------------------------------------------------------
+
 local comment = require("Comment")
 
 comment.setup({
-    -- LHS of toggle mappings in NORMAL + VISUAL mode
-    -- @type table
+    -- Add a space b/w comment and the line
+    padding = true,
+    -- Whether the cursor should stay at its position
+    sticky = true,
+
+    -- LHS of toggle mappings in NORMAL mode
     toggler = {
-        line  = "gcc", -- Line-comment toggle keymap
+        line = "gcc",  -- Line-comment toggle keymap
         block = "gbc", -- Block-comment toggle keymap
     },
+
+    -- LHS of operator-pending mappings in NORMAL + VISUAL mode
+    opleader = {
+        line  = "gc", -- Line-comment keymap
+        block = "gb", -- Block-comment keymap
+    },
+
     -- Pre-hook, called before commenting the line
-    -- @type fun(ctx: CommentCtx):string
-    pre_hook = function(ctx)
-        local U = require("Comment.utils")
-        local location = nil
+    --   Can be used to determine the commentstring value
+    pre_hook = nil,
 
-        if ctx.ctype == U.ctype.block then
-            location = require("ts_context_commentstring.utils").get_cursor_location()
-        elseif ctx.motion == U.cmotion.v or ctx.motion == U.cmotion.V then
-            location = require("ts_context_commentstring.utils").get_visual_start_location()
-        end
+    -- Post-hook called after commenting is done
+    --   Can be used to alter any formatting / newlines / etc.
+    post_hook = nil,
 
-        return require("ts_context_commentstring.internal").calculate_commentstring({
-            key = (ctx.ctype == U.ctype.line and "__default" or "__multiline"),
-            location = location,
-        })
-    end,
+    -- Can be used to ignore certain lines when doing linewise motions.
+    --   Can be a string (lua regex)
+    --   Or function (that returns lua regex)
+    ignore = nil,
 })

@@ -2,7 +2,7 @@
 -- Color schemes configuration file
 -----------------------------------------------------------
 
-local colorscheme = 'darkplus'
+local colorscheme = "gruvbox"
 
 -- Monokaipro settings
 --vim.g.monokaipro_filter = "machine"
@@ -13,12 +13,17 @@ vim.g.monokaipro_colors = { hint = "orange", error = "#ff0000" }
 
 -- Gruvbox settings
 if colorscheme == "gruvbox" then
-    vim.o.background = "light"
+    vim.o.background = "dark"
     require("gruvbox").setup({
         undercurl = true,
         underline = true,
         bold = true,
-        italic = true,
+        italic = {
+            strings = true,
+            comments = true,
+            operators = false,
+            folds = false,
+        },
         strikethrough = true,
         invert_selection = false,
         invert_signs = false,

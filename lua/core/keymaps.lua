@@ -2,10 +2,10 @@
 -- Define keymaps of Neovim and installed plugins.
 --------------------------------------------------------------------------------
 
-local function keymap(mode, lhs, rhs)
+local function keymap(mode, lhs, rhs, opts)
     local options = { silent = true, noremap = true }
     if opts then
-        options = vim.tbl_extend("force", options)
+        options = vim.tbl_extend("force", options, opts)
     end
     vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
@@ -41,7 +41,7 @@ keymap('n', "<C-s>",      ":w<CR>")
 keymap('i', "fd", "<ESC>")
 
 -- Clear highlight search
-keymap('n', "<C-l>", ":nohl<CR>:echo 'cleared'<CR>")
+keymap('n', "<C-l>", ":nohl<CR>:echo ''<CR>")
 
 -- Select whole buffer
 keymap('n', "<C-a>", "ggVG")
@@ -62,7 +62,7 @@ keymap('n', "<A-S-j>",  ":vertical resize -2<CR>")
 keymap('n', "<Leader>w",  "<C-w>")
 
 -- Quick editing of neovim config files
-keymap('n', "<Leader>sv", ":luafile $MYVIMRC<CR>")
+keymap('n', "<Leader>sf", ":luafile $MYVIMRC<CR>:echo 'Config reloaded'<CR>")
 keymap('n', "<Leader>ei", ":e $MYVIMRC<CR>")
 keymap('n', "<Leader>ek", ":e ~/.config/nvim/lua/core/keymaps.lua<CR>")
 keymap('n', "<Leader>es", ":e ~/.config/nvim/lua/core/settings.lua<CR>")
@@ -92,11 +92,15 @@ keymap('i', "<A-k>", "<ESC>V:move '<-2<CR>gv-gv<ESC>i")
 -- Applications and Plugins shortcuts
 --------------------------------------------------------------------------------
 
--- Toggle explorer
-keymap('n', "<A-e>",     ":NvimTreeToggle<CR>")
+-- Comment
+keymap('n', "<C-/>",     "gcc", { noremap = false })
+keymap('v', "<C-/>",     "gcc", { noremap = false })
+
+-- Explorer
+keymap('n', "<C-S-e>",   ":NvimTreeToggle<CR>")
 keymap('n', "<Leader>0", ":NvimTreeFocus<CR>")
 
--- Telescope key bindings
+-- Telescope
 keymap('n', "<leader>ff", ":lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>")
 keymap('n', "<leader>fb", ":lua require('telescope.builtin').buffers()<CR>")
 keymap('n', "<leader>ss", ":Telescope live_grep<CR>")

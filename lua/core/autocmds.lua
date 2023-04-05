@@ -16,7 +16,7 @@ augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
     group = 'YankHighlight',
     callback = function()
-        vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '1000' })
+        vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '500' })
     end
 })
 
@@ -47,7 +47,7 @@ autocmd('Filetype', {
 augroup('setIndent', { clear = true })
 autocmd('Filetype', {
     group = 'setIndent',
-    pattern = { 'xml', 'html', 'xhtml', 'css', 'scss', 'javascript', 'typescript',
+    pattern = { 'xml', 'html', 'xhtml', 'css', 'scss',
         'yaml'
     },
     command = 'setlocal shiftwidth=2 tabstop=2'
